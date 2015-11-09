@@ -1,5 +1,16 @@
 # teamchallenge
 Info343 team challenge
 
+My favorite candy is candycorn! Woo!
 
-My favorite candy sour patch kids. Especially the green ones!
+
+
+hello my favorite candy is not candy corn xd - Brian
+
+
+Boolean pigsFlying = false;
+
+if (myFavoriteCandy == candyCorn) {
+    pigsFlying = true;
+}
+
