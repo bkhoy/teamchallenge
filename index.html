@@ -16,12 +16,21 @@
         <div class="container-fluid" ng-controller="FormCtrl">
     	    <h1> PUPPY PUPPY PUPPY</h1>
     	    <img src="img/daisyPuppy.jpg" alt="Daisy Puppy">
-        	<main class="container">
-    	    	<form>
-    	    		<label for="name">Name</label>
-    	    		<input name="name" type="text" class="form-control" ng-model="testAngularFormText">
-    	    		<br>
-    	    		<button type="submit" class="btn btn-primary">Sign Up</button>
+        	<main>
+    	    	<form name="signUp" class="form-horizontal" novalidate>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input name="email" type="email" class="form-control" placeholder="Email Address...">
+                    </div>
+                    <div class="form-group">
+        	    		<label for="firstName">First Name</label>
+        	    		<input name="firstName" type="text" class="form-control" placeholder="First Name...">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input name="lastName" type="text" class="form-control" placeholder="Last Name..." required>
+                    </div>
+    	    		<button type="submit" class="btn btn-primary" ng-disabled="signUp.$invalid">Sign Up</button>
     	    	</form>
     	    </main>
           
