@@ -12,17 +12,20 @@
         <title></title> <!-- What should the title be?-->
     </head>
 
-    <body>
-	    <h1> PUPPY PUPPY PUPPY</h1>
-	    <img src="img/daisyPuppy.jpg" alt="Daisy Puppy">
-    	<main class="container">
-	    	<form>
-	    		<label for="name">Name</label>
-	    		<input name="name" type="text" class="form-control"/>
-	    		<br />
-	    		<button type="submit" class="btn btn-primary">Clickity Click!</button>
-	    	</form>
-	    </main>
+    <body ng-app = "TeamChallenge">
+        <div class="container-fluid" ng-controller="FormCtrl">
+    	    <h1> PUPPY PUPPY PUPPY</h1>
+    	    <img src="img/daisyPuppy.jpg" alt="Daisy Puppy">
+        	<main class="container">
+    	    	<form>
+    	    		<label for="name">Name</label>
+    	    		<input name="name" type="text" class="form-control" ng-model="testAngularFormText">
+    	    		<br>
+    	    		<button type="submit" class="btn btn-primary">Sign Up</button>
+    	    	</form>
+    	    </main>
+          
+        </div> <!-- end container-fluid -->
         <script src="js/app.js"></script>
     </body>
 </html>
