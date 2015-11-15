@@ -9,26 +9,29 @@
         <!--Angular Library -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
 
-        <title></title> <!-- What should the title be?-->
+        <title> i hope ur better older than 13 m8 </title> <!-- What should the title be?-->
     </head>
 
     <body ng-app = "TeamChallenge">
         <div class="container-fluid" ng-controller="FormCtrl">
-    	    <h1> PUPPY PUPPY PUPPY</h1>
+    	    <h1> cool social media page for 13+ kids. no dogs allowed </h1>
     	    <img src="img/daisyPuppy.jpg" alt="Daisy Puppy">
         	<main>
     	    	<form name="signUp" class="form-horizontal" novalidate>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': signUp.email.$invalid && signUp.email.$touched}">
                         <label for="email">Email Address</label>
-                        <input name="email" type="email" class="form-control" placeholder="Email Address...">
+                        <input id="email" name="email" type="email" ng-model="email" class="form-control" placeholder="Email Address..." required>
+                        <p ng-show="signUp.email.$invalid && signUp.email.$dirty" class="help-block"> Oops! Looks like this isn't a valid email address.</p>
+                        <p ng-show="signUp.email.$touched && signUp.email.$pristine" class="help-block"> Oops! Don't forget to fill this out! </p>
                     </div>
                     <div class="form-group">
         	    		<label for="firstName">First Name</label>
         	    		<input name="firstName" type="text" class="form-control" placeholder="First Name...">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'has-error': signUp.lastName.$invalid && signUp.lastName.$touched}">
                         <label for="lastName">Last Name</label>
-                        <input name="lastName" type="text" class="form-control" placeholder="Last Name..." required>
+                        <input ng-model="lastName" name="lastName" type="text" class="form-control" placeholder="Last Name..." required>
+                        <p ng-show="signUp.lastName.$touched && signUp.lastName.$pristine" class="help-block"> Oops! Don't forget to fill this out! </p>
                     </div>
     	    		<button type="submit" class="btn btn-primary" ng-disabled="signUp.$invalid">Sign Up</button>
     	    	</form>
