@@ -18,31 +18,25 @@ angular.module('TeamChallenge',[])
             thirteenYearsAgo.setFullYear(currentDate.getFullYear() - 13); 
 
             if (usersYear - thirteenYearsAgo.getFullYear() < 0) {
-                console.log("Yay youre old enough");
-                return true;
+           		$scope.signUp.birthdate.$setValidity('birthdate', true);
             } else if (usersYear - thirteenYearsAgo.getFullYear() == 0) {
                 if (usersMonth < thirteenYearsAgo.getMonth()) {
-                    console.log("Yay youre old enough");
-                    return true;
+               		$scope.signUp.birthdate.$setValidity('birthdate', true);
                 } else if (usersMonth == thirteenYearsAgo.getMonth()) {
                     if (usersDay <= thirteenYearsAgo.getDate()) {
-                        console.log("Yay youre old enough");
-                        return true;
+                   		$scope.signUp.birthdate.$setValidity('birthdate', true);
                     } else {
-                    // show error message sayin "u r 2 yung kid. 'git' outta here"
-                    // (user too young)
+                   		$scope.signUp.birthdate.$setValidity('birthdate', false);
                     }
                 } else {
-                    // show error message sayin "u r 2 yung kid. 'git' outta here"
-                    // (user too young)
+                   	$scope.signUp.birthdate.$setValidity('birthdate', false);
                 }
             } else {
-                // show error message sayin "u r 2 yung kid. 'git' outta here"
-                // (user too young)
+                $scope.signUp.birthdate.$setValidity('birthdate', false);
             }
+            return false;
         } else {
-            console.log("pls enter valid birthday");
-            // also show error message saying "Please enter a valid birthday"
+           return true;
         }
     }
 
