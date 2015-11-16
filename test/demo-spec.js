@@ -12,6 +12,7 @@ describe('Sign-up validation page', function(){
     beforeEach(function() {
         // reload the page before each test
         browser.get('http://localhost:8000');
+        // browser.get('http://localhost:8000/code/teamchallenge/'); *** For Benjamin's tests, delete before submission ***
     });
 
 	it('should show an error message when email address is left blank after the user has touched it', function(){
@@ -39,6 +40,14 @@ describe('Sign-up validation page', function(){
         $('#firstName').click(); // touch something else and leave the input blank
 
         expect( $('#forgotLastName').isDisplayed() ).toEqual(true);
+    });
+
+    it('should show the success bootstrap alert paragraph above the form when submit is successfully clicked', function(){
+        $('#email').sendKeys('leeds@uw.edu');
+        $('#lastName').sendKeys('Leeds');
+        $('#birthdate').sendKeys('September 29, 1990');
+        $('#submit').click(); //attempt to click the submit button
+        expect( $('#success').isDisplayed() ).toEqual(true); // expect the success alert paragraph to be displayed
     });
 
 })

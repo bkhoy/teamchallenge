@@ -19,6 +19,9 @@
     	    <h1> cool social media page for 13+ kids. no dogs allowed </h1>
     	    <img src="img/daisyPuppy.jpg" alt="Daisy Puppy">
         	<main>
+                 <div id="success" class="alert alert-success" ng-show="success">
+                    <strong>Success!</strong> We've received your request to sign up. 
+                </div>
     	    	<form name="signUp" class="form-horizontal" novalidate>
 
                     <div class="form-group" ng-class="{'has-error': signUp.email.$invalid && signUp.email.$touched}">
@@ -47,7 +50,7 @@
                         <p id="invalidBirthdate" ng-show="checkBirthdate(birthdate) && signUp.birthdate.$dirty" class="help-block"> Oops, this isn't a valid birthday! </p>
                     </div>
 
-    	    		<button type="submit" class="btn btn-primary" ng-disabled="signUp.$invalid">Sign Up</button>
+    	    		<button id ="submit" type="submit" class="btn btn-primary" ng-click="showAlert()" ng-disabled="signUp.$invalid">Sign Up</button>
     	    	</form>
     	    </main>
           

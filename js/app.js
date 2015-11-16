@@ -43,6 +43,11 @@ angular.module('TeamChallenge',[])
         }
     }
 
+    $scope.showAlert = function(){
+        console.log("HERE");
+        $scope.success = true;
+    }
+
 
 }])
 
