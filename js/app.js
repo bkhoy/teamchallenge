@@ -4,7 +4,7 @@ angular.module('TeamChallenge',[])
 .controller('FormCtrl', ['$scope', function($scope){
 
 
-    // grabs user's birthdate and see if they are older than 13 years old
+    // grabs user's birthdate and check if they are older than 13 years old
     $scope.checkBirthdate = function(response) {
 
         if (!isNaN(Date.parse(response))) {
@@ -15,6 +15,7 @@ angular.module('TeamChallenge',[])
 
             var currentDate = new Date(Date.now());
             var thirteenYearsAgo = new Date(Date.now());
+            // grab current date 13 years ago
             thirteenYearsAgo.setFullYear(currentDate.getFullYear() - 13); 
 
             if (usersYear - thirteenYearsAgo.getFullYear() < 0) {
@@ -36,6 +37,8 @@ angular.module('TeamChallenge',[])
             }
             return false;
         } else {
+           // user typed in something not in a date format
+           $scope.signUp.birthdate.$setValidity('birthdate', false);
            return true;
         }
     }
