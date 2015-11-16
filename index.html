@@ -50,6 +50,19 @@
                         <p id="invalidBirthdate" ng-show="checkBirthdate(birthdate) && signUp.birthdate.$dirty" class="help-block"> Oops, this isn't a valid birthday! </p>
                     </div>
 
+                    <div class ="form-group" ng-class="{'has-error': signUp.password.$invalid && signUp.password.$touched}">
+                        <label for="password"Password>Password </label>
+                        <input id="password" ng-model="password" name="password" type="password" class="form-control" placeholder="Password..." required>
+                        <p id="forgotPassword" ng-show="signUp.password.$touched && signUp.password.$pristine" class="help-block"> Oops! Don't forget to fill this out! </p>
+                    </div>
+
+                    <div class ="form-group" ng-class="{'has-error': signUp.passwordConfirm.$invalid && signUp.passwordConfirm.$touched}">
+                        <label for="passwordConfirm"Password>Password Confirmation</label>
+                        <input id="passwordConfirm" ng-model="passwordConfirm" name="passwordConfirm" type="password" class="form-control" placeholder="Password Confirmation..." required>
+                        <p id="forgotPasswordConfirm" ng-show="signUp.passwordConfirm.$touched && signUp.passwordConfirm.$pristine" class="help-block"> Oops! Don't forget to fill this out! </p>
+                        <p id="passwordNoMatch" ng-show="signUp.password === signUp.passwordConfirm" class="help-block">Password and confirmation password don't match! </p>
+                    </div>
+
     	    		<button id ="submit" type="submit" class="btn btn-primary" ng-click="showAlert()" ng-disabled="signUp.$invalid">Sign Up</button>
     	    	</form>
     	    </main>
