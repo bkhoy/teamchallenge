@@ -4,12 +4,22 @@ body {
 	background-color: #81C14B;
 }
 
+blockquote {
+	border-left: 2px solid #81C14B;
+	border-right: 2px solid #81C14B;
+	font-size: 2em;
+}
+
 main {
 	margin: 50px;
 }
 
 #mainBox {
 	background-color: #FFFFFF;
+}
+
+#tayBunny {
+	float: left;
 }
 
 #caption {
@@ -25,8 +35,8 @@ main {
 #caption small {
 	font-size: 8pt;
 }
-.circle {
-	border-radius: 50%;
+.col-md-3 {
+	border-radius: 25px;
 }
 form {
 	margin: auto;
