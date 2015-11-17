@@ -60,7 +60,7 @@
                         <label for="passwordConfirm"Password>Password Confirmation</label>
                         <input id="passwordConfirm" ng-model="passwordConfirm" name="passwordConfirm" type="password" class="form-control" placeholder="Password Confirmation..." required>
                         <p id="forgotPasswordConfirm" ng-show="signUp.passwordConfirm.$touched && signUp.passwordConfirm.$pristine" class="help-block"> Oops! Don't forget to fill this out! </p>
-                        <p id="passwordNoMatch" ng-show="signUp.password === signUp.passwordConfirm" class="help-block">Password and confirmation password don't match! </p>
+                        <p id="passwordMatch" ng-show="checkPasswordMatch(password, passwordConfirm) && signUp.passwordConfirm.$touched" class="help-block">Password and confirmation password don't match! </p>
                     </div>
 
     	    		<button id ="submit" type="submit" class="btn btn-primary" ng-click="showAlert()" ng-disabled="signUp.$invalid">Sign Up</button>

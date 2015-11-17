@@ -48,6 +48,16 @@ angular.module('TeamChallenge',[])
         $scope.success = true;
     }
 
+    $scope.checkPasswordMatch = function(password, passwordConfirm) {
+      if ((password != passwordConfirm)) {
+        $scope.signUp.passwordConfirm.$setValidity('passwordConfirm', false);
+        return true;
+      } else {
+        $scope.signUp.passwordConfirm.$setValidity('passwordConfirm', true);
+        return false;
+      }
+    }
+
 
 }])
 
