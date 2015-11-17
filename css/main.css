@@ -1,15 +1,40 @@
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
 
+body {
+	background-color: #81C14B;
+}
+
 main {
 	margin: 50px;
 }
 
+#mainBox {
+	background-color: #FFFFFF;
+}
+
+#caption {
+	width: 70%;
+	text-align: center;
+	padding: 20px;
+}
+
+#caption p {
+	text-align: justify;
+}
+
+#caption small {
+	font-size: 8pt;
+}
+.circle {
+	border-radius: 50%;
+}
 form {
 	margin: auto;
 	border-radius: 25px;
-	border: 1px solid gray;
 	padding: 25px;
 	width: 70%;
+	background-color: white;
+	box-shadow: 10px 10px 5px #888888;
 }
 
 img {
@@ -20,4 +45,5 @@ img {
 
 h1 {
 	text-align: center;
+	color: #81C14B;
 }

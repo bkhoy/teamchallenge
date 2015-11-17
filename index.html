@@ -3,21 +3,26 @@
     <head> 
         <meta charset="UTF-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+		<link rel="icon" href="img/bunny.png" type="image/png"/>
         <link rel="stylesheet" href="css/main.css"/>
 
         <!--Angular Library, jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-        <title> i hope ur better older than 13 m8 </title> <!-- What should the title be?-->
+        <title>Bunny Society</title> <!-- What should the title be?-->
     </head>
 
     <body ng-app = "TeamChallenge">
-        <div class="container-fluid" ng-controller="FormCtrl">
+        <div id="mainBox" class="container" ng-controller="FormCtrl">
 
-    	    <h1> cool social media page for 13+ kids. no dogs allowed </h1>
-    	    <img src="img/daisyPuppy.jpg" alt="Daisy Puppy">
+    	    <div id="caption" class="container">
+    	    	<h1>Be a Bunny Society Member today!</h1>
+    	    	<h2>"Being a Bunny Society Member changed my life! Who doesn't love these adorable little furballs?!"</h2>
+    	    	<p>The Bunny Society is a prestigious club for the avid bunny lover. When you sign up to be a BSM, you're signing up to be part of a great family. Utilizing the world wide web, we chat about our favorite bunny videos, images, news, and more, all around the world! If you love bunnies, come be a Bunny Society Member today!</p>
+    	   		<small>Due to potentially somewhat mature content which may or may not be displayed, this website is restricted to the Bunny Society Members who are 13 and older!</small>
+    	   	</div>
+    	    <img class="circle" src="img/bunnyPuppy.jpg" alt="Busy Bees">
         	<main>
                  <div id="success" class="alert alert-success" ng-show="success">
                     <strong>Success!</strong> We've received your request to sign up. 
@@ -43,7 +48,7 @@
                     </div>
 
                     <div class="form-group" ng-class="{'has-error': signUp.birthdate.$invalid && signUp.birthdate.$touched}">
-                        <label for="lastName">Birthdate </label>
+                        <label for="birthdate">Birthdate </label>
                         <input id="birthdate" ng-model="birthdate" ng-change="checkBirthdate(birthdate)" name="birthdate" type="text" class="form-control" placeholder="e.g. September 25, 2002 or 9/25/02" required>
                         <p id="forgotBirthdate" ng-show="signUp.birthdate.$touched && signUp.birthdate.$pristine" class="help-block"> Oops! Don't forget to fill this out! </p>
                         <p id="tooYoung" ng-show="signUp.birthdate.$invalid && signUp.birthdate.$dirty" class="help-block"> Oops! Looks like you're not old enough to sign up :( </p>
@@ -52,8 +57,14 @@
 
                     <div class ="form-group" ng-class="{'has-error': signUp.password.$invalid && signUp.password.$touched}">
                         <label for="password"Password>Password </label>
-                        <input id="password" ng-model="password" name="password" type="password" class="form-control" placeholder="Password..." required>
+                        <input id="password" ng-model="password" name="password" type="password" class="form-control" placeholder="Password..." required ng-change="passwordStrength()">
                         <p id="forgotPassword" ng-show="signUp.password.$touched && signUp.password.$pristine" class="help-block"> Oops! Don't forget to fill this out! </p>
+                    </div>
+
+                     <div class="progress">
+                        <div id="strength-indicator" class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                            <span id="sr-strength-indicator" class="sr-only">10% Complete</span> <!-- for a screenreader -->
+                        </div>
                     </div>
 
                     <div class ="form-group" ng-class="{'has-error': signUp.passwordConfirm.$invalid && signUp.passwordConfirm.$touched}">
