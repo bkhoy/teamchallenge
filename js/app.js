@@ -6,7 +6,6 @@ angular.module('TeamChallenge',[])
 
     // grabs user's birthdate and check if they are older than 13 years old
     $scope.checkBirthdate = function(response) {
-
         if (!isNaN(Date.parse(response))) {
             var usersBirthdate = new Date(response);
             var usersYear = usersBirthdate.getFullYear(); 
