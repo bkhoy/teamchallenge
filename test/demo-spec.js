@@ -11,7 +11,8 @@ describe('Sign-up validation page', function(){
 
     beforeEach(function() {
         // reload the page before each test
-        browser.get('http://localhost:8000');
+        //browser.get('http://localhost:8000');
+        browser.get('http://localhost:8000/teamchallenge/');
         // browser.get('http://localhost:8000/code/teamchallenge/'); *** For Benjamin's tests, delete before submission ***
     });
 
@@ -49,5 +50,34 @@ describe('Sign-up validation page', function(){
         $('#submit').click(); //attempt to click the submit button
         expect( $('#success').isDisplayed() ).toEqual(true); // expect the success alert paragraph to be displayed
     });
+
+    it('should show an error if the birthdate is left blank after the user has touched it', function() {
+        $('#birthdate').click();
+        $('#lastName').click();
+
+        expect($('#forgotBirthdate').isDisplayed()).toEqual(true);
+    });
+
+    it('should show an error if the birthdate is not valid', function() {
+        $('#birthdate').sendKeys('NotMyBirthday 19, 1995');
+
+        expect($('#invalidBirthdate').isDisplayed()).toEqual(true);
+    });
+
+    it('should show an error if the user is not old enough', function() {
+        $('#birthdate').sendKeys('11/15/2011');
+
+        expect($('#tooYoung').isDisplayed()).toEqual(true);
+    });
+
+    it('should not show an error if the birthdate format is VALID', function() {
+        $('#birthdate').sendKeys('11/15/95');
+
+        expect($('#invalidBirthdate').isDisplayed()).toEqual(false);
+        expect($('#tooYoung').isDisplayed()).toEqual(false);
+        expect($('#forgotBirthdate').isDisplayed()).toEqual(false);
+    });
+    
+
 
 })
