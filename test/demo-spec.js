@@ -14,10 +14,6 @@ describe('Sign-up validation page', function(){
 
         browser.get('http://localhost:8000');
 
-        //browser.get('http://localhost:8000');
-        browser.get('http://localhost:8000/teamchallenge/');
-
-        // browser.get('http://localhost:8000/code/teamchallenge/'); *** For Benjamin's tests, delete before submission ***
     });
 
 	it('should show an error message when email address is left blank after the user has touched it', function(){
@@ -51,6 +47,8 @@ describe('Sign-up validation page', function(){
         $('#email').sendKeys('leeds@uw.edu');
         $('#lastName').sendKeys('Leeds');
         $('#birthdate').sendKeys('September 29, 1990');
+        $('#password').sendKeys('green');
+        $('#passwordConfirm').sendKeys('green');
         $('#submit').click(); //attempt to click the submit button
         expect( $('#success').isDisplayed() ).toEqual(true); // expect the success alert paragraph to be displayed
     });
@@ -82,6 +80,40 @@ describe('Sign-up validation page', function(){
         expect($('#forgotBirthdate').isDisplayed()).toEqual(false);
     });
     
+    it('should show an error message when password is left blank after the user has touched it', function(){
+        $('#password').click();
+        $('#firstName').click();
+
+        expect( $('#forgotPassword').isDisplayed() ).toEqual(true);
+    });
+
+    it('should show no error message with VALID password', function() {
+        $('#password').sendKeys('placeholder');
+        
+        expect( $('#forgotEmail').isDisplayed() ).toEqual(false);
+    });
+
+    it('should show an error message when password confirmation is left blank after the user has touched it', function(){
+        $('#passwordConfirm').click();
+        $('#firstName').click();
+
+        expect( $('#forgotPasswordConfirm').isDisplayed() ).toEqual(true);
+    });
+
+    it('should show an error message when password confirmation fails to match the password', function(){
+        $('#password').sendKeys('green');
+        $('#passwordConfirm').sendKeys('red');
+        $('#firstName').click();
+
+        expect( $('#passwordMatch').isDisplayed() ).toEqual(true);
+    });
+
+    it('should show an error message when password confirmation SUCCEEDS to match the password', function(){
+        $('#password').sendKeys('green');
+        $('#passwordConfirm').sendKeys('green');
+
+        expect( $('#passwordMatch').isDisplayed() ).toEqual(false);
+    });
 
 
 })
