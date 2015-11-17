@@ -1,7 +1,7 @@
 /*
 * demo-spec.js
 * Created: Friday November 13, 2015
-* Created By: J. Benjamin Leeds
+* Automated tests for our Bunny Society page - all form validations
 */
 'use strict'
 
@@ -9,9 +9,7 @@ describe('Sign-up validation page', function(){
 
     beforeEach(function() {
         // reload the page before each test
-
         browser.get('http://localhost:8000');
-
     });
 
 	it('should show an error message when email address is left blank after the user has touched it', function(){
@@ -78,6 +76,14 @@ describe('Sign-up validation page', function(){
         expect($('#forgotBirthdate').isDisplayed()).toEqual(false);
     });
     
+    it('should not show an error if the birthdate with English dates is VALID', function() {
+        $('#birthdate').sendKeys('November 23, 1995'); //tests a valid birthdate fully written out
+
+        expect($('#invalidBirthdate').isDisplayed()).toEqual(false); //no error message should be displayed
+        expect($('#tooYoung').isDisplayed()).toEqual(false);
+        expect($('#forgotBirthdate').isDisplayed()).toEqual(false);
+    });
+
     it('should show an error message when password is left blank after the user has touched it', function(){
         $('#password').click();
         $('#firstName').click();
@@ -111,15 +117,6 @@ describe('Sign-up validation page', function(){
         $('#passwordConfirm').sendKeys('green');
 
         expect( $('#passwordMatch').isDisplayed() ).toEqual(false);
-    });
-
-    it('should not show an error if the birthdate with English dates is VALID', function() {
-        $('#birthdate').sendKeys('November 23, 1995'); //tests a valid birthdate fully written out
-
-
-        expect($('#invalidBirthdate').isDisplayed()).toEqual(false); //no error message should be displayed
-        expect($('#tooYoung').isDisplayed()).toEqual(false);
-        expect($('#forgotBirthdate').isDisplayed()).toEqual(false);
     });
 
 })
