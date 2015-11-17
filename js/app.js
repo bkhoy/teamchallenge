@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('TeamChallenge',[])
-.controller('FormCtrl', ['$scope', function($scope){
+.controller('FormCtrl', ['$scope', function FormController($scope){
 
 
     // grabs user's birthdate and check if they are older than 13 years old
