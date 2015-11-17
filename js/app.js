@@ -43,11 +43,12 @@ angular.module('TeamChallenge',[])
         }
     }
 
+    //handles the alert for a successful submission
     $scope.showAlert = function(){
         $scope.success = true;
     }
 
-
+    //handles the functionality that checks whether the password and password confirmation fields match
     $scope.checkPasswordMatch = function(password, passwordConfirm) {
       if ((password != passwordConfirm)) {
         $scope.signUp.passwordConfirm.$setValidity('passwordConfirm', false);
@@ -59,8 +60,8 @@ angular.module('TeamChallenge',[])
     }
 
 
+    //handles the functionality of the password strength bar
     $scope.passwordStrength = function(){
-
 
         if(angular.isDefined($scope.password)){
             var pLength = $scope.password.length; // the length of the password
