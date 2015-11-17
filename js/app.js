@@ -47,10 +47,26 @@ angular.module('TeamChallenge',[])
         $scope.success = true;
     }
 
+
+    $scope.checkPasswordMatch = function(password, passwordConfirm) {
+      if ((password != passwordConfirm)) {
+        $scope.signUp.passwordConfirm.$setValidity('passwordConfirm', false);
+        return true;
+      } else {
+        $scope.signUp.passwordConfirm.$setValidity('passwordConfirm', true);
+        return false;
+      }
+    }
+
+
     $scope.passwordStrength = function(){
 
+
+        if(angular.isDefined($scope.password)){
+            var pLength = $scope.password.length; // the length of the password
+        }
         // *** presently a bug if user deletes password after entering one
-        var pLength = $scope.password.length; // the length of the password
+        
         var suggestedLength = 10; // the suggested minimum length of a password
         var strengthFraction = 0; // initialize local variable
 

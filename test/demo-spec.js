@@ -11,8 +11,12 @@ describe('Sign-up validation page', function(){
 
     beforeEach(function() {
         // reload the page before each test
+
+        browser.get('http://localhost:8000');
+
         //browser.get('http://localhost:8000');
         browser.get('http://localhost:8000/teamchallenge/');
+
         // browser.get('http://localhost:8000/code/teamchallenge/'); *** For Benjamin's tests, delete before submission ***
     });
 
