@@ -1,6 +1,6 @@
 describe('FormController', function() {
 
-	var controller, scope;
+	var controller;
 
 	beforeEach(module("TeamChallenge"));
 
