@@ -44,11 +44,37 @@ angular.module('TeamChallenge',[])
     }
 
     $scope.showAlert = function(){
-        console.log("HERE");
         $scope.success = true;
     }
 
+    $scope.passwordStrength = function(){
 
+        // *** presently a bug if user deletes password after entering one
+        var pLength = $scope.password.length; // the length of the password
+        var suggestedLength = 10; // the suggested minimum length of a password
+        var strengthFraction = 0; // initialize local variable
+
+        // check if the password is greater than the suggested minimum length
+        if(pLength > suggestedLength){
+            strengthFraction = 1;
+        } else{
+            strengthFraction = pLength / 10;
+        }
+
+        $scope.strengthPercent = strengthFraction * 100; // sace to scope
+
+        // increase or decrease bar length
+        $('#strength-indicator').attr("style","width: " + $scope.strengthPercent + "%;");
+
+        // change password bar 
+        $('#strength-indicator').toggleClass("progress-bar-danger", $scope.strengthPercent <= 25);
+        $('#strength-indicator').toggleClass("progress-bar-warning", $scope.strengthPercent > 25 && $scope.strengthPercent <= 75);
+        $('#strength-indicator').toggleClass("progress-bar-success", $scope.strengthPercent > 75);
+
+        // account for users on screenreaders
+        $('#strength-indicator').attr("aria-valuenow",$scope.strengthPercent);
+        $('#sr-strength-indicator').text($scope.strengthPercent + "% Complete");
+    }
 }])
 
 
