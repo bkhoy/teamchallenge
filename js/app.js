@@ -66,7 +66,6 @@ angular.module('TeamChallenge',[])
         if(angular.isDefined($scope.password)){
             var pLength = $scope.password.length; // the length of the password
         }
-        // *** presently a bug if user deletes password after entering one
         
         var suggestedLength = 10; // the suggested minimum length of a password
         var strengthFraction = 0; // initialize local variable
@@ -78,7 +77,7 @@ angular.module('TeamChallenge',[])
             strengthFraction = pLength / 10;
         }
 
-        $scope.strengthPercent = strengthFraction * 100; // sace to scope
+        $scope.strengthPercent = strengthFraction * 100; // save to scope
 
         // increase or decrease bar length
         $('#strength-indicator').attr("style","width: " + $scope.strengthPercent + "%;");
